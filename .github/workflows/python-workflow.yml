@@ -2,8 +2,6 @@ name: Python Trigger Demo
 
 on:
   push:
-    branches:
-      - main
 
 jobs:
   run-python:
