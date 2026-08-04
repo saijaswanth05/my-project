@@ -3,7 +3,7 @@ name: TU Automated Tests
 on:
   schedule:
     # Runs at 45 minutes past every hour (UTC)
-    - cron: '45 * * * *'
+    - cron: '*/5 * * * *'
 
   # Optional: Allows you to run it manually from GitHub
   workflow_dispatch:
