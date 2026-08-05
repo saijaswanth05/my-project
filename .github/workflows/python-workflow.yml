@@ -2,10 +2,10 @@ name: TU Automated Tests
 
 on:
   schedule:
-    # Runs at 45 minutes past every hour (UTC)(testing after default branch change)
-    - cron: '*/5 * * * *'
+    # Runs every hour at XX:15 IST (45 minutes past every UTC hour)
+    - cron: '45 * * * *'
 
-  # Optional: Allows you to run it manually from GitHub
+  # Allows manual execution from GitHub Actions
   workflow_dispatch:
 
 jobs:
@@ -27,10 +27,12 @@ jobs:
           pip install -r requirements.txt
 
       - name: Install Playwright Browsers
-        run: playwright install --with-deps
+        run: |
+          playwright install --with-deps
 
       - name: Run Tests
-        run: pytest
+        run: |
+          pytest
 
       - name: Upload HTML Report
         if: always()
